@@ -15,6 +15,9 @@ import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.display.StageScaleMode;
 import lime.app.Application;
+#if android
+import android.content.Context;
+#end
 
 //crash handler stuff
 #if CRASH_HANDLER
@@ -47,12 +50,25 @@ class Main extends Sprite
 	public static function main():Void
 	{
 		Lib.current.addChild(new Main());
+		#if cpp
+		cpp.NativeGc.enable(true);
+		#elseif hl
+		hl.Gc.enable(true);
+		#end
 	}
 
 	public function new()
 	{
 		super();
 
+		
+		// Credits to MAJigsaw77 (he's the og author for this code)
+		#if android
+		Sys.setCwd(Path.addTrailingSlash(Context.getExternalFilesDir()));
+		#elseif ios
+		Sys.setCwd(lime.system.System.applicationStorageDirectory);
+		#end
+		
 		if (stage != null)
 		{
 			init();
@@ -75,41 +91,36 @@ class Main extends Sprite
 
 	private function setupGame():Void
 	{
-		
-		var stageWidth:Int = Lib.current.stage.stageWidth;
-		var stageHeight:Int = Lib.current.stage.stageHeight;
-
-		if (zoom == -1)
-		{
-			var ratioX:Float = stageWidth / gameWidth;
-			var ratioY:Float = stageHeight / gameHeight;
-			zoom = Math.min(ratioX, ratioY);
-			gameWidth = Math.ceil(stageWidth / zoom);
-			gameHeight = Math.ceil(stageHeight / zoom);
-		}
-	
 		ClientPrefs.loadDefaultKeys();
-		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
+		addChild(new FlxGame(gameWidth, gameHeight, initialState, framerate, framerate, skipSplash, startFullscreen));
 
-		#if !mobile
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
+		#if !mobile
 		addChild(fpsVar);
+		#else
+		FlxG.game.addChild(fpsVar);
+		#end
 		Lib.current.stage.align = "tl";
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
-		#end
 
 		#if html5
 		FlxG.autoPause = false;
 		FlxG.mouse.visible = false;
 		#end
 		
+		#if desktop
 		collectSystemData();
+		#end
 
 		#if CRASH_HANDLER
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
+		#end
+
+		#if android
+		FlxG.android.preventDefaultKeys = [BACK];
 		#end
 	}
 
@@ -126,7 +137,7 @@ class Main extends Sprite
 		dateNow = dateNow.replace(" ", "_");
 		dateNow = dateNow.replace(":", "'");
 
-		path = "./crashlogs/" + "VsFNaF3_" + dateNow + ".txt";
+		path = "crashlogs/" + "VsFNaF3_" + dateNow + ".txt";
 
 		for (stackItem in callStack)
 		{
@@ -141,8 +152,8 @@ class Main extends Sprite
 
 		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error either in '#mod-issues in PouriaSFMs discord server'\n or @AutisticLulu on Discord\n or to the GitHub page: https://github.com/MeguminBOT/fnf-fnaf3-source/issues\n\nDon't forget to send the Crashlog!!\n\n> Crash Handler written by: sqirra-rng";
 
-		if (!FileSystem.exists("./crash/"))
-			FileSystem.createDirectory("./crash/");
+		if (!FileSystem.exists("crash/"))
+			FileSystem.createDirectory("crash/");
 
 		File.saveContent(path, errMsg + "\n");
 
@@ -165,8 +176,8 @@ function collectSystemData():Void
 	var systemInfo = new SystemData();
 	var path:String;
 
-	path = "./" + "SystemData.txt";
+	path = "SystemData.txt";
 
-	if (!FileSystem.exists("./" + "SystemData.txt"))
+	if (!FileSystem.exists("SystemData.txt"))
 		File.saveContent(path, systemInfo.toString() + "\n");
 }
