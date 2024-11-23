@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="camstatic.png">
-	<!-- Created with Adobe Animate version 20.5.1.31044 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="idle0000" x="0" y="0" width="825" height="825"/>
-	<SubTexture name="idle0001" x="826" y="0" width="825" height="825"/>
-	<SubTexture name="idle0002" x="0" y="826" width="825" height="825"/>
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="idle0000" x="412" y="0" width="412" height="412" frameX="0" frameY="0" frameWidth="412" frameHeight="412"/>
+	<SubTexture name="idle0001" x="0" y="0" width="412" height="412" frameX="0" frameY="0" frameWidth="412" frameHeight="412"/>
+	<SubTexture name="idle0002" x="824" y="0" width="412" height="412" frameX="0" frameY="0" frameWidth="412" frameHeight="412"/>
 </TextureAtlas>
