@@ -1,6 +1,6 @@
 function onCreate()
 	precacheSound("death/outOfBounds")
-	video.Load("death/outOfBounds.webm")
+	video.Load("death/outOfBounds.mp4")
 end
 
 function onGameOverStart()
