@@ -7,7 +7,7 @@ function onCreate()
 	createMiscSprites() -- Create misc sprites.
 
 	-- Load Video
-	video.Load("takenapart.webm")
+	video.Load("takenapart.mp4")
 end
 
 function onCreatePost()
