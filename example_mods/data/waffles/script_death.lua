@@ -1,6 +1,6 @@
 function onCreate()
 	precacheSound("death/waffles")
-	video.Load("death/waffles.webm")
+	video.Load("death/waffles.mp4")
 end
 
 function onGameOverStart()
