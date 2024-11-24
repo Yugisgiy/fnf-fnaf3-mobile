@@ -4,15 +4,15 @@ local chica = 0;
 local foxy = 0;
 
 function onCreate()
-	precacheSound("death/takenApart1.webm")
-	precacheSound("death/takenApart2.webm")
-	precacheSound("death/takenApart3.webm")
-	precacheSound("death/takenApart4.webm")
+	precacheSound("death/takenApart1")
+	precacheSound("death/takenApart2")
+	precacheSound("death/takenApart3")
+	precacheSound("death/takenApart4")
 
-	video.Load("death/takenApart1.webm")
-	video.Load("death/takenApart2.webm")
-	video.Load("death/takenApart3.webm")
-	video.Load("death/takenApart4.webm")
+	video.Load("death/takenApart1.mp4")
+	video.Load("death/takenApart2.mp4")
+	video.Load("death/takenApart3.mp4")
+	video.Load("death/takenApart4.mp4")
 end
 
 function onStepHit()
