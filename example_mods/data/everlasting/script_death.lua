@@ -9,10 +9,10 @@ function onCreate()
 	precacheSound("death/everlasting3")
 	precacheSound("death/everlasting4")
 
-	video.Load("death/everlasting1.webm")
-	video.Load("death/everlasting2.webm")
-	video.Load("death/everlasting3.webm")
-	video.Load("death/everlasting4.webm")
+	video.Load("death/everlasting1.mp4")
+	video.Load("death/everlasting2.mp4")
+	video.Load("death/everlasting3.mp4")
+	video.Load("death/everlasting4.mp4")
 end
 
 function onStepHit()
