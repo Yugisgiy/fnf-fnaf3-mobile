@@ -1,6 +1,6 @@
 function onCreate()
 	precacheSound('death/leantrap')
-	video.Load("death/leantrap.webm")
+	video.Load("death/leantrap.mp4")
 end
 
 function onGameOverStart()
