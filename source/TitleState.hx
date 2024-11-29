@@ -35,7 +35,7 @@ import sys.io.File;
 #end
 
 #if VIDEOS_ALLOWED 
-import hxvlc.flixel.FlxVideoSprite;
+import hxvlc.flixel.FlxVideo;
 #end
 
 using StringTools;
