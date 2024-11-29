@@ -35,7 +35,7 @@ import sys.io.File;
 #end
 
 #if VIDEOS_ALLOWED 
-import hxvlc.flixel.FlxVideo;
+import hxvlc.flixel.FlxVideoSprite;
 #end
 
 using StringTools;
@@ -71,9 +71,25 @@ class TitleState extends MusicBeatState {
 			return;
 		}
 
-		videoIntro = new FlxVideo();
+		videoIntro = new FlxVideoSprite();
+		add(videoIntro);
 		videoIntro.onEndReached.add(videoIntro.dispose);
 		videoIntro.load(filepath);
+
+		videoIntro.bitmap.onFormatSetup.add(function()
+		{
+			/*
+			#if hxvlc
+			var wd:Int = videoSprite.bitmap.formatWidth;
+			var hg:Int = videoSprite.bitmap.formatHeight;
+			trace('Video Resolution: ${wd}x${hg}');
+			videoSprite.scale.set(FlxG.width / wd, FlxG.height / hg);
+			#end
+			*/
+			videoIntro.setGraphicSize(FlxG.width);
+			videoIntro.updateHitbox();
+			videoIntro.screenCenter();
+		});
 
 		#end
 	}
