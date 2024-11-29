@@ -48,7 +48,7 @@ class TitleState extends MusicBeatState {
 	public static var updateVersion:String = '';
 
 	var mustUpdate:Bool = false;
-	var videoIntro:FlxVideo;
+	var videoIntro:FlxVideoSprite;
 	var titleTextColors:Array<FlxColor> = [0xFFDEFDB2, 0xFFC2FF6B];
 	var titleTextAlphas:Array<Float> = [1, .64];
 
