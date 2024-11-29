@@ -48,7 +48,7 @@ class TitleState extends MusicBeatState {
 	public static var updateVersion:String = '';
 
 	var mustUpdate:Bool = false;
-	var videoIntro:FlxVideoSprite;
+	var videoIntro:FlxVideo;
 	var titleTextColors:Array<FlxColor> = [0xFFDEFDB2, 0xFFC2FF6B];
 	var titleTextAlphas:Array<Float> = [1, .64];
 
@@ -71,25 +71,9 @@ class TitleState extends MusicBeatState {
 			return;
 		}
 
-		videoIntro = new FlxVideoSprite();
-		add(videoIntro);
+		videoIntro = new FlxVideo();
 		videoIntro.onEndReached.add(videoIntro.dispose);
 		videoIntro.load(filepath);
-
-		videoIntro.bitmap.onFormatSetup.add(function()
-		{
-			/*
-			#if hxvlc
-			var wd:Int = videoSprite.bitmap.formatWidth;
-			var hg:Int = videoSprite.bitmap.formatHeight;
-			trace('Video Resolution: ${wd}x${hg}');
-			videoSprite.scale.set(FlxG.width / wd, FlxG.height / hg);
-			#end
-			*/
-			videoIntro.setGraphicSize(FlxG.width);
-			videoIntro.updateHitbox();
-			videoIntro.screenCenter();
-		});
 
 		#end
 	}
