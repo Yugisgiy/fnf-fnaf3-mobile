@@ -51,6 +51,13 @@
       "url": "https://github.com/MobilePorting/lime"
     },
     {
+      "name": "hxvlc",
+      "type": "git",
+      "ref": "main",
+      "version": "1.7.1"
+      "url": "https://github.com/MobilePorting/hxvlc"
+    },
+    {
       "name": "openfl",
       "type": "git",
       "ref": "9.1.0",
