@@ -1,0 +1,60 @@
+{
+  "dependencies": [
+    {
+      "name": "hxdiscord_rpc",
+      "type": "git",
+      "ref": "main",
+      "url": "https://github.com/MobilePorting/hxdiscord_rpc"
+    },
+    {
+      "name": "linc_luajit",
+      "type": "git",
+      "ref": "master",
+      "url": "https://github.com/MobilePorting/linc_luajit"
+    },
+    {
+      "name": "flixel",
+      "type": "haxelib",
+      "version": "4.11.0"
+    },
+    {
+      "name": "flixel-addons",
+      "type": "haxelib",
+      "version": "2.11.0"
+    },
+    {
+      "name": "flixel-ui",
+      "type": "haxelib",
+      "version": "2.4.0"
+    },
+    {
+      "name": "hscript",
+      "type": "haxelib",
+      "version": "2.4.0"
+    },
+    {
+      "name": "hxCodec",
+      "type": "git",
+      "ref": "main",
+      "url": "https://github.com/MobilePorting/hxCodec-0.6.3"
+    },
+    {
+      "name": "hxcpp",
+      "type": "git",
+      "ref": "master",
+      "url": "https://github.com/MobilePorting/hxcpp"
+    },
+    {
+      "name": "lime",
+      "type": "git",
+      "ref": "main",
+      "url": "https://github.com/MobilePorting/lime"
+    },
+    {
+      "name": "openfl",
+      "type": "git",
+      "ref": "9.1.0",
+      "url": "https://github.com/MobilePorting/openfl"
+    }
+  ]
+}
